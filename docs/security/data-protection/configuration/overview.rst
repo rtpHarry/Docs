@@ -1,3 +1,5 @@
+.. include:: substitutions.txt
+
 Configuring Data Protection
 ===========================
 
@@ -154,7 +156,7 @@ To specify custom managed algorithms, create a ManagedAuthenticatedEncryptionOpt
 Generally the \*Type properties must point to concrete, instantiable (via a public parameterless ctor) implementations of SymmetricAlgorithm and KeyedHashAlgorithm, though the system special-cases some values like typeof(Aes) for convenience.
 
 .. note:: 
-  The SymmetricAlgorithm must have a key length of ≥ 128 bits and a block size of ≥ 64 bits, and it must support CBC-mode encryption with PKCS #7 padding. The KeyedHashAlgorithm must have a digest size of >= 128 bits, and it must support keys of length equal to the hash algorithm's digest length. The KeyedHashAlgorithm is not strictly required to be HMAC.
+  The SymmetricAlgorithm must have a key length of |ge| 128 bits and a block size of |ge| 64 bits, and it must support CBC-mode encryption with PKCS #7 padding. The KeyedHashAlgorithm must have a digest size of |ge| 128 bits, and it must support keys of length equal to the hash algorithm's digest length. The KeyedHashAlgorithm is not strictly required to be HMAC.
 
 .. _data-protection-changing-algorithms-cng:
 
@@ -183,7 +185,7 @@ To specify a custom Windows CNG algorithm using CBC-mode encryption + HMAC valid
   });
 
 .. note:: 
-  The symmetric block cipher algorithm must have a key length of ≥ 128 bits and a block size of ≥ 64 bits, and it must support CBC-mode encryption with PKCS #7 padding. The hash algorithm must have a digest size of >= 128 bits and must support being opened with the BCRYPT_ALG_HANDLE_HMAC_FLAG flag. The \*Provider properties can be set to null to use the default provider for the specified algorithm. See the `BCryptOpenAlgorithmProvider <https://msdn.microsoft.com/en-us/library/windows/desktop/aa375479(v=vs.85).aspx>`_ documentation for more information.
+  The symmetric block cipher algorithm must have a key length of |ge| 128 bits and a block size of |ge| 64 bits, and it must support CBC-mode encryption with PKCS #7 padding. The hash algorithm must have a digest size of |ge| 128 bits and must support being opened with the BCRYPT_ALG_HANDLE_HMAC_FLAG flag. The \*Provider properties can be set to null to use the default provider for the specified algorithm. See the `BCryptOpenAlgorithmProvider <https://msdn.microsoft.com/en-us/library/windows/desktop/aa375479(v=vs.85).aspx>`_ documentation for more information.
 
 To specify a custom Windows CNG algorithm using Galois/Counter Mode encryption + validation, create a CngGcmAuthenticatedEncryptionOptions instance that contains the algorithmic information.
 
@@ -203,7 +205,7 @@ To specify a custom Windows CNG algorithm using Galois/Counter Mode encryption +
   });
 
 .. note:: 
-  The symmetric block cipher algorithm must have a key length of ≥ 128 bits and a block size of exactly 128 bits, and it must support GCM encryption. The EncryptionAlgorithmProvider property can be set to null to use the default provider for the specified algorithm. See the `BCryptOpenAlgorithmProvider <https://msdn.microsoft.com/en-us/library/windows/desktop/aa375479(v=vs.85).aspx>`_ documentation for more information.
+  The symmetric block cipher algorithm must have a key length of |ge| 128 bits and a block size of exactly 128 bits, and it must support GCM encryption. The EncryptionAlgorithmProvider property can be set to null to use the default provider for the specified algorithm. See the `BCryptOpenAlgorithmProvider <https://msdn.microsoft.com/en-us/library/windows/desktop/aa375479(v=vs.85).aspx>`_ documentation for more information.
 
 Specifying other custom algorithms
 ----------------------------------
