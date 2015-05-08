@@ -1,3 +1,5 @@
+.. include:: substitutions.txt
+
 .. _data-protection-configuration-machinewidepolicy:
 
 Machine Wide Policy
@@ -19,7 +21,7 @@ If you're on a 64-bit operating system and want to affect the behavior of 32-bit
 The supported values are:
 
 * EncryptionType [string] - specifies which algorithms should be used for data protection. This value must be "CNG-CBC", "CNG-GCM", or "Managed" and is described in more detail :ref:`below <data-protection-encryption-types>`.
-* DefaultKeyLifetime [DWORD] - specifies the lifetime for newly-generated keys. This value is specified in days and must be ≥ 7.
+* DefaultKeyLifetime [DWORD] - specifies the lifetime for newly-generated keys. This value is specified in days and must be |ge| 7.
 * KeyEscrowSinks [string] - specifies the types which will be used for key escrow. This value is a semicolon-delimited list of key escrow sinks, where each element in the list is the assembly qualified name of a type which implements IKeyEscrowSink.
 
 .. _data-protection-encryption-types:
